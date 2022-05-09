@@ -16,7 +16,11 @@ URL_LINK=Config.URL_LINK
 @Client.on_message(filters.media & filters.channel)
 async def caption(client, message: Message):
 kopp, _ = get_file_id(message)
-    await message.edit(f"<b>{kopp.file_name}</b>\n\n{CAPTION_TEXT}",
+title = files.file_name
+size=get_size(files.file_size)
+caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
+
+    await message.edit(f"{file_size}<b>{kopp.file_name}</b>\n\n{CAPTION_TEXT}",
 
 def get_file_id(msg: Message):
     if msg.media:
