@@ -18,7 +18,7 @@ async def caption(client, message: Message):
     kopp, _ = get_file_id(message)
     title = files.file_name
     size=get_size(files.file_size)
-    await message.edit(f"{file_size} {kopp.file_name}</b>\n\n{CAPTION_TEXT}",
+    await message.edit(f"{kopp.file_name}</b>\n\n{CAPTION_TEXT}",
         ))
 
 def get_file_id(msg: Message):
